@@ -1,0 +1,28 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:14.2
+    volumes:
+      - /opt/docker_data/redditclone/db:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=reddit
+      - POSTGRES_PASSWORD=reddit
+      - POSTGRES_DB=reddit
+    ports:
+      - 55436:5432
+
+  redis:
+    image: 'redis:alpine'
+    ports:
+      - 63790:6379
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+
+  mongo:
+    image: mongo:latest
+    environment:
+      MONGO_INITDB_DATABASE: reddit
+    ports:
+      - 27017:27017
+    volumes:
+      - /opt/docker_data/redditclone/mongo:/data/db
