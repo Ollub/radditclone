@@ -1,4 +1,4 @@
-# radditclone
+# redditclone
 Pet project used to pump my Go skills
 inspired by https://github.com/d11z/asperitas
 
